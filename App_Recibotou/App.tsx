@@ -6,8 +6,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import routes, {initialRouteName} from './routes';
 import {LogBox} from 'react-native';
 import React from 'react';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {UserProvider} from './src/shared/context/UserProvider';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 const Stack = createNativeStackNavigator();
 

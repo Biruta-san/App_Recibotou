@@ -1,7 +1,6 @@
 import React, {useContext, useState} from 'react';
 import {Dimensions, StyleSheet} from 'react-native';
 import {postDataApi, updateApiHeaders} from '../../shared/utils/api/functions';
-import {SafeAreaView} from 'react-native-safe-area-context';
 import {User, UserContext} from '../../shared/context/UserProvider';
 import {retrieveColorString} from '../../shared/utils/constants/colorConstants';
 import Input from '../../shared/components/form/inputs/Input';
@@ -10,6 +9,7 @@ import BaseButton from '../../shared/components/form/buttons/BaseButton';
 import Text from '../../shared/components/typography/Text';
 import {USUARIO_LOGIN_ROUTE} from '../../shared/utils/api/routes';
 import Layout from '../../shared/components/layouts/Layout';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 interface LoginScreenProps {
   navigation: {
@@ -36,7 +36,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
     try {
       const result = await postDataApi<LoginResponse>(USUARIO_LOGIN_ROUTE, {
         email,
-        password
+        password,
       });
       if (result.data.token) {
         updateApiHeaders(result.data.token);
